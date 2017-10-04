@@ -1,0 +1,33 @@
+[Version:1]
+ResourceTable 
+{
+	var ResourceType = "Level"
+	var EntryList = Array
+	{
+		Object
+		{
+			var Name = "Name1"
+			var Value = "5982280c5e01417d:SimpleCube"
+			var Weight = 1
+		}
+		Object
+		{
+			var Name = "Name2"
+			var Value = "59822791c7a0709b:Wedge"
+			var Weight = 1
+		}
+		Object
+		{
+			var Name = "Name3"
+			var Value = "598227a2ca88ceed:Cube5x5"
+			var Weight = 1
+		}
+		Object
+		{
+			var Name = "Name4"
+			var Value = "598220b28232b3a1:Meshes"
+			var Weight = 1
+		}
+	}
+	var MaxWeight = 1
+}
