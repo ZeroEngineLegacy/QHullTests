@@ -1,0 +1,41 @@
+[RunInEditor]
+class HierarchyMeshToTextBlock : ToTextBlockBase
+{
+  [Property]
+  function Save()
+  {
+    var fileName = this.GenerateVertexFileName(this.Owner.Name);
+    this.SaveVertices(fileName, this.GetVertices());
+  }
+  
+  function GetVertices() : Array[Real3]
+  {
+    var output = Array[Real3]();
+    this.GetVertices(this.Owner, output);
+    return output;
+  }
+  
+  function GetVertices(cog : Cog, output : Array[Real3])
+  {
+    if(cog.Model != null)
+    {
+      var mesh = cog.Model.Mesh;
+      this.GetVertices(mesh, cog.Transform.WorldMatrix, output);
+    }
+    
+    foreach(var child in cog.Children)
+    {
+      this.GetVertices(child, output);
+    }
+  }
+  
+  function GetVertices(mesh : Mesh, transform : Real4x4, output : Array[Real3])
+  {
+    for(var i = 0; i < mesh.Vertices.VertexCount; ++i)
+    {
+      var pos = mesh.Vertices.GetVertexData(i, VertexSemantic.Position).XYZ;
+      pos -= Math.MultiplyPoint(transform, pos);
+      output.Add(pos.XYZ);
+    }
+  }
+}
