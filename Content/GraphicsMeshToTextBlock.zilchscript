@@ -28,6 +28,16 @@ class GraphicsMeshToTextBlock : ToTextBlockBase
     this.SaveVertices(fileName, this.GetVertices());
   }
   
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.SaveVertices, this.OnSaveVertices);
+  }
+
+  function OnSaveVertices(event : ZilchEvent)
+  {
+    this.Save();
+  }
+  
   function GetVertices() : Array[Real3]
   {
     var output = Array[Real3]();

@@ -1,6 +1,8 @@
 [RunInEditor]
 class HierarchyMeshToTextBlock : ToTextBlockBase
 {
+  [Property] var ApplyTransform : Boolean = true;
+  
   [Property]
   function Save()
   {
@@ -8,24 +10,47 @@ class HierarchyMeshToTextBlock : ToTextBlockBase
     this.SaveVertices(fileName, this.GetVertices());
   }
   
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Owner, Events.QueryQuickHullVertices, this.OnQueryQuickHullVertices);
+    Zero.Connect(this.Space, Events.SaveVertices, this.OnSaveVertices);
+  }
+
+  function OnSaveVertices(event : ZilchEvent)
+  {
+    this.Save();
+  }
+  
+  function OnQueryQuickHullVertices(event : QuickHullVertexQueryEvent)
+  {
+    event.Vertices = this.GetVertices();
+  }
+  
   function GetVertices() : Array[Real3]
   {
     var output = Array[Real3]();
-    this.GetVertices(this.Owner, output);
+    
+    var parentInverse = Real4x4();
+    parentInverse.SetIdentity();
+    if(!this.ApplyTransform)
+      parentInverse = Math.Invert(this.Owner.Transform.WorldMatrix);
+    
+    this.GetVertices(this.Owner, output, parentInverse);
     return output;
   }
   
-  function GetVertices(cog : Cog, output : Array[Real3])
+  function GetVertices(cog : Cog, output : Array[Real3], parentInverse : Real4x4)
   {
     if(cog.Model != null)
     {
       var mesh = cog.Model.Mesh;
-      this.GetVertices(mesh, cog.Transform.WorldMatrix, output);
+      var worldMatrix = Math.Multiply(parentInverse, cog.Transform.WorldMatrix);
+      this.GetVertices(mesh, worldMatrix, output);
     }
     
     foreach(var child in cog.Children)
     {
-      this.GetVertices(child, output);
+      this.GetVertices(child, output, parentInverse);
     }
   }
   
@@ -34,7 +59,7 @@ class HierarchyMeshToTextBlock : ToTextBlockBase
     for(var i = 0; i < mesh.Vertices.VertexCount; ++i)
     {
       var pos = mesh.Vertices.GetVertexData(i, VertexSemantic.Position).XYZ;
-      pos -= Math.MultiplyPoint(transform, pos);
+      pos = Math.MultiplyPoint(transform, pos);
       output.Add(pos.XYZ);
     }
   }

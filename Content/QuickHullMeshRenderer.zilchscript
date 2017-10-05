@@ -6,7 +6,7 @@ class QuickHullMeshRenderer : ZilchComponent
   [Property] var Active : Boolean = true;
   [Property][ShaderInput] var RenderEdges : Boolean = true;
   [Property][ShaderInput] var RenderFilled : Boolean = true;
-  [Property][ShaderInput] var RenderNormals : Boolean = true;
+  [Property][ShaderInput] var RenderNormals : Boolean = false;
   
   [Property][ShaderInput] var NormalBaseSize : Real = 0.0025;
   [Property][ShaderInput] var NormalLength : Real = 0.1;
@@ -45,9 +45,11 @@ class QuickHullMeshRenderer : ZilchComponent
     }
     
     this.Mesh.Upload();
+    this.Model.Visible = true;
     this.Model.Mesh = this.Mesh;
-    this.Model.OverrideBoundingBox = true;
-    this.Model.LocalAabbCenter = aabb.Center;
-    this.Model.LocalAabbHalfExtents = aabb.HalfExtents;
+    this.Model.ViewCulling = false;
+    //this.Model.OverrideBoundingBox = true;
+    //this.Model.LocalAabbCenter = aabb.Center;
+    //this.Model.LocalAabbHalfExtents = aabb.HalfExtents;
   }
 }

@@ -12,4 +12,14 @@ class ConvexMeshToTextBlock : ToTextBlockBase
     var fileName = this.GenerateVertexFileName(this.Input.Name);
     this.SaveVertices(fileName, this.Input.Vertices.ToArray());
   }
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.SaveVertices, this.OnSaveVertices);
+  }
+
+  function OnSaveVertices(event : ZilchEvent)
+  {
+    this.Save();
+  }
 }

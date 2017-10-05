@@ -17,6 +17,16 @@ class BoxGenerator : ToTextBlockBase
     var fileName = this.GenerateVertexFileName(testName);
     this.SaveVertices(fileName, output);
   }
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.SaveVertices, this.OnSaveVertices);
+  }
+
+  function OnSaveVertices(event : ZilchEvent)
+  {
+    this.Save();
+  }
 
   function GenerateVertices(outVertices : Array[Real3])
   {
