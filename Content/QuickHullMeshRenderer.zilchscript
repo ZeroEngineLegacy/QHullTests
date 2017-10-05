@@ -20,10 +20,12 @@ class QuickHullMeshRenderer : ZilchComponent
 
   function OnQuickHullFinished(event : ZilchEvent)
   {
-    var aabb = Aabb();
-    this.Mesh.Vertices.ClearData();
+    this.Mesh = Mesh.CreateRuntime();
     this.Mesh.Indices.Clear();
+    this.Mesh.Vertices.ClearData();
+    this.Mesh.Vertices.ClearAttributes();
     
+    var aabb = Aabb();
     this.Mesh.Vertices.AddAttribute(VertexSemantic.Position, VertexElementType.Real, 3);
     this.Mesh.Vertices.AddAttribute(VertexSemantic.Normal, VertexElementType.Real, 3);
     foreach(var vertex in this.QuickHullTest.Vertices)

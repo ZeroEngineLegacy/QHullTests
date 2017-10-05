@@ -15,6 +15,11 @@ class QuickHullTest : ZilchComponent
   var Edges = Array[QEdge]();
   var Faces = Array[QFace]();
   
+  [Property] function Run()
+  {
+    this.RunQuickHull();
+  }
+  
   function Initialize(init : CogInitializer)
   {
     if(!this.Active)

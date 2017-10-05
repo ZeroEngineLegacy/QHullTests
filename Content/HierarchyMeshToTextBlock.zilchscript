@@ -1,7 +1,9 @@
 [RunInEditor]
 class HierarchyMeshToTextBlock : ToTextBlockBase
 {
-  [Property] var ApplyTransform : Boolean = true;
+  [Property] var SkipSelf : Boolean = true;
+  [Property] var ApplyTransform : Boolean = false;
+  [Property] var FindUsedVertices : Boolean = false;
   
   [Property]
   function Save()
@@ -41,11 +43,14 @@ class HierarchyMeshToTextBlock : ToTextBlockBase
   
   function GetVertices(cog : Cog, output : Array[Real3], parentInverse : Real4x4)
   {
-    if(cog.Model != null)
+    if((this.SkipSelf && cog == this.Owner) == false)
     {
-      var mesh = cog.Model.Mesh;
-      var worldMatrix = Math.Multiply(parentInverse, cog.Transform.WorldMatrix);
-      this.GetVertices(mesh, worldMatrix, output);
+      if( cog.Model != null)
+      {
+        var mesh = cog.Model.Mesh;
+        var worldMatrix = Math.Multiply(parentInverse, cog.Transform.WorldMatrix);
+        this.GetVertices(mesh, worldMatrix, output);
+      }
     }
     
     foreach(var child in cog.Children)
@@ -56,11 +61,40 @@ class HierarchyMeshToTextBlock : ToTextBlockBase
   
   function GetVertices(mesh : Mesh, transform : Real4x4, output : Array[Real3])
   {
+    if(this.FindUsedVertices)
+      this.GetUsedVertices(mesh, transform, output);
+    else
+      this.GetAllVertices(mesh, transform, output);
+  }
+  
+  function GetAllVertices(mesh : Mesh, transform : Real4x4, output : Array[Real3])
+  {
     for(var i = 0; i < mesh.Vertices.VertexCount; ++i)
     {
       var pos = mesh.Vertices.GetVertexData(i, VertexSemantic.Position).XYZ;
       pos = Math.MultiplyPoint(transform, pos);
       output.Add(pos.XYZ);
+    }
+  }
+  
+  function GetUsedVertices(mesh : Mesh, transform : Real4x4, output : Array[Real3])
+  {
+    var map = HashMap[Integer, Integer]();
+    var points = Array[Real3]();
+    
+    for(var i = 0; i < mesh.Indices.Count; ++i)
+    {
+      var index = mesh.Indices[i];
+      if(map.Contains(index))
+        continue;
+      map[index] = index;
+      points.Add(mesh.Vertices.GetVertexData(index, VertexSemantic.Position).XYZ);
+    }
+    
+    foreach(var point in points)
+    {
+      var worldPoint = Math.MultiplyPoint(transform, point);
+      output.Add(worldPoint);
     }
   }
 }
