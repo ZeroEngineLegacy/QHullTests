@@ -1,0 +1,18 @@
+[Version:1]
+DataContent 
+{
+	ContentTags 
+	{
+		var Tags = Array
+		{
+		}
+	}
+	DataBuilder 
+	{
+		var Name = "WireFrame"
+		var ResourceId = 0x59809e104945adac
+		var LoaderType = "Material"
+		var Version = 0
+		var ShowInEditor = true
+	}
+}

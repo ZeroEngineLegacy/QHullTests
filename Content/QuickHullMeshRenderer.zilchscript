@@ -1,0 +1,53 @@
+class QuickHullMeshRenderer : ZilchComponent
+{
+  [Dependency] var QuickHullTest : QuickHullTest;
+  [Dependency] var Model : Model;
+  
+  [Property] var Active : Boolean = true;
+  [Property][ShaderInput] var RenderEdges : Boolean = true;
+  [Property][ShaderInput] var RenderFilled : Boolean = true;
+  [Property][ShaderInput] var RenderNormals : Boolean = true;
+  
+  [Property][ShaderInput] var NormalBaseSize : Real = 0.0025;
+  [Property][ShaderInput] var NormalLength : Real = 0.1;
+  
+  var Mesh : Mesh = Mesh.CreateRuntime();
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Owner, Events.QuickHullFinished, this.OnQuickHullFinished);
+  }
+
+  function OnQuickHullFinished(event : ZilchEvent)
+  {
+    var aabb = Aabb();
+    this.Mesh.Vertices.ClearData();
+    this.Mesh.Indices.Clear();
+    
+    this.Mesh.Vertices.AddAttribute(VertexSemantic.Position, VertexElementType.Real, 3);
+    this.Mesh.Vertices.AddAttribute(VertexSemantic.Normal, VertexElementType.Real, 3);
+    foreach(var vertex in this.QuickHullTest.Vertices)
+    {
+      this.Mesh.Vertices.AddReal(vertex);
+      this.Mesh.Vertices.AddReal(Real3.ZAxis);
+    }
+    
+    foreach(var face in this.QuickHullTest.Faces)
+    {
+      for(var i = 2; i < face.Edges.Count; ++i)
+      {
+        var e0 = this.QuickHullTest.Edges[face.Edges[0]];
+        var e1 = this.QuickHullTest.Edges[face.Edges[i - 1]];
+        var e2 = this.QuickHullTest.Edges[face.Edges[i]];
+        
+        this.Mesh.Indices {e0.Vertex, e1.Vertex, e2.Vertex};
+      }
+    }
+    
+    this.Mesh.Upload();
+    this.Model.Mesh = this.Mesh;
+    this.Model.OverrideBoundingBox = true;
+    this.Model.LocalAabbCenter = aabb.Center;
+    this.Model.LocalAabbHalfExtents = aabb.HalfExtents;
+  }
+}
