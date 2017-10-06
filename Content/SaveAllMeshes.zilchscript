@@ -9,7 +9,7 @@ class SaveAllMeshes : ZilchComponent
 
   function OnCommandExecute(event : CommandEvent)
   {
-    this.Space.DispatchEvent(Events.SaveVertices, ZilchEvent());
+    event.Space.DispatchEvent(Events.SaveVertices, ZilchEvent());
     Console.WriteLine("SaveAllMeshes Command Executed");
   }
 }
