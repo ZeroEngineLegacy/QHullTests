@@ -8,7 +8,7 @@ Material
 	}
 	AlbedoValue 
 	{
-		var AlbedoValue = Real4{1, 1, 1, 1}
+		var AlbedoValue = Real4{0, 0, 0, 1}
 		var GammaCorrect = true
 	}
 	NormalMap 
@@ -29,13 +29,5 @@ Material
 	SpecularValue 
 	{
 		var SpecularValue = 0.5
-	}
-	WireFrame 
-	{
-		var RenderFilled = true
-		var RenderEdges = true
-		var RenderNormals = true
-		var NormalBaseSize = 0.00249999994
-		var NormalLength = 0.100000001
 	}
 }

@@ -1,8 +1,14 @@
 enum QuickHullDebugDrawMode {None, Debug, Final}
 
+class QuickHullEvent : ZilchEvent
+{
+  var Owner : Cog;
+}
+
+
 class QuickHullTest : ZilchComponent
 {
-  sends QuickHullFinished : ZilchEvent;
+  sends QuickHullFinished : QuickHullEvent;
   
   [Property] var Active : Boolean = true;
   [Property] var DebugDrawMode : QuickHullDebugDrawMode = QuickHullDebugDrawMode.None;
@@ -53,7 +59,9 @@ class QuickHullTest : ZilchComponent
     this.QuickHullInterface.Build();
     this.CacheMesh();
     
-    this.Owner.DispatchEvent(Events.QuickHullFinished, ZilchEvent());
+    var toSend = QuickHullEvent() {Owner = this.Owner};
+    this.Owner.DispatchEvent(Events.QuickHullFinished, toSend);
+    this.Owner.DispatchDown(Events.QuickHullFinished, toSend);
   }
 
   function OnLogicUpdate(event : UpdateEvent)

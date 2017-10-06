@@ -1,7 +1,6 @@
 [RunInEditor]
 class HierarchyMeshToTextBlock : ToTextBlockBase
 {
-  [Property] var SkipSelf : Boolean = true;
   [Property] var ApplyTransform : Boolean = false;
   [Property] var FindUsedVertices : Boolean = false;
   
@@ -20,6 +19,7 @@ class HierarchyMeshToTextBlock : ToTextBlockBase
 
   function OnSaveVertices(event : ZilchEvent)
   {
+    Console.WriteLine("Save");
     this.Save();
   }
   
@@ -43,20 +43,26 @@ class HierarchyMeshToTextBlock : ToTextBlockBase
   
   function GetVertices(cog : Cog, output : Array[Real3], parentInverse : Real4x4)
   {
-    if((this.SkipSelf && cog == this.Owner) == false)
+    if(this.IsCogValid(cog))
     {
-      if( cog.Model != null)
-      {
-        var mesh = cog.Model.Mesh;
-        var worldMatrix = Math.Multiply(parentInverse, cog.Transform.WorldMatrix);
-        this.GetVertices(mesh, worldMatrix, output);
-      }
+      var mesh = cog.Model.Mesh;
+      var worldMatrix = Math.Multiply(parentInverse, cog.Transform.WorldMatrix);
+      this.GetVertices(mesh, worldMatrix, output);
     }
     
     foreach(var child in cog.Children)
     {
       this.GetVertices(child, output, parentInverse);
     }
+  }
+  
+  function IsCogValid(cog : Cog) : Boolean
+  {
+    if(cog.Model == null)
+      return false;
+    if(cog.SkipMeshCollection != null)
+      return false;
+    return true;
   }
   
   function GetVertices(mesh : Mesh, transform : Real4x4, output : Array[Real3])
