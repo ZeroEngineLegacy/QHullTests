@@ -175,9 +175,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-5.63002539, 18.6640663, 31.3281631}
+			var Translation = Real3{0.178614885, 0.288167775, 3.40766072}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.215928108, -0.162720367, -0.0365214534, 0.962062061}
+			var Rotation = Quaternion{0.0566734932, 0.0261388887, -0.00148428173, 0.998049498}
 		}
 		CameraViewport 
 		{
@@ -234,10 +234,10 @@ Level
 		{
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
-			var LookDistance = 36.6928711
-			var VerticalAngle = 0.441568494
-			var HorizontalAngle = 0.335102737
-			var LookTarget = Real3{5.27957773, 2.98307371, 0}
+			var LookDistance = 3.43441582
+			var VerticalAngle = -0.11344666
+			var HorizontalAngle = 12.5140028
+			var LookTarget = Real3{-1.78813934e-07, 0.676955581, 7.4505806e-08}
 			var MoveSensitivity = 1
 		}
 	}
@@ -358,6 +358,7 @@ Level
 		{
 			var Active = false
 			var DebugDrawMode = QuickHullDebugDrawMode.Final
+			var Test = DebugDrawTest.Actual
 		}
 		QuickHullMeshSaver 
 		{
@@ -389,6 +390,7 @@ Level
 		{
 			var Active = false
 			var DebugDrawMode = QuickHullDebugDrawMode.Debug
+			var Test = DebugDrawTest.Actual
 		}
 		QuickHullMeshSaver 
 		{
@@ -453,6 +455,7 @@ Level
 		{
 			var Active = false
 			var DebugDrawMode = QuickHullDebugDrawMode.Final
+			var Test = DebugDrawTest.Actual
 		}
 		QuickHullMeshSaver 
 		{
@@ -1401,6 +1404,7 @@ Level
 		{
 			var Active = false
 			var DebugDrawMode = QuickHullDebugDrawMode.Final
+			var Test = DebugDrawTest.Actual
 		}
 		QuickHullMeshSaver 
 		{
@@ -1446,18 +1450,25 @@ Level
 		{
 			var Active = true
 			var DebugDrawMode = QuickHullDebugDrawMode.Final
+			var Test = DebugDrawTest.Actual
 		}
 		QuickHullMeshSaver 
 		{
 			var Active = true
 		}
-		BoxGenerator 
-		{
-			var TestNamePrefix = "Box"
-			var Stacks = 5
-			var Slices = 5
-		}
 		Hierarchy 
+		{
+		}
+	}
+	Cog [InheritId:"5983c83fc80eb544:GenericSofa"][ContextId:111]
+	{
+		Transform 
+		{
+			var Translation = Real3{0, 0, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+		HierarchyMeshToTextBlock [LocallyAdded]
 		{
 		}
 	}

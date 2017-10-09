@@ -201,6 +201,15 @@ Level
 		{
 			var Active = true
 		}
+		QuaternionCamera 
+		{
+			var Speed = 8
+			var LookSpeed = 0.00499999989
+			var RunWhilePaused = true
+			var AllowRotation = true
+			var AllowTranslation = true
+			var MouseTrapped = false
+		}
 	}
 	Cog [ContextId:5]
 	{
@@ -233,7 +242,7 @@ Level
 		}
 		QuickHullTest 
 		{
-			var Active = true
+			var Active = false
 			var DebugDrawMode = QuickHullDebugDrawMode.Final
 		}
 		QuickHullMeshSaver 

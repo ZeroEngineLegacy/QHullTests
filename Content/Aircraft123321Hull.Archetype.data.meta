@@ -3,9 +3,9 @@ DataContent
 {
 	DataBuilder 
 	{
-		var Name = "Meshes"
-		var ResourceId = 0x598220b28232b3a1
-		var LoaderType = "Level"
+		var Name = "Aircraft123321Hull"
+		var ResourceId = 0x59809235c0300812
+		var LoaderType = "Cog"
 		var Version = 0
 		var ShowInEditor = true
 	}

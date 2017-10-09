@@ -4,6 +4,8 @@ class DifferUtility
   // Where unit test files are saved to
   var SavePath : String;
   
+  var Config = "release";
+  
   constructor()
   {
     // Construct the default save path
@@ -37,13 +39,13 @@ class DifferUtility
   
   function GetGeneratedFileName(testName : String) : String
   {
-    var generatedTestPath = FilePath.CombineDirectoriesAndFile(this.SavePath, "`testName`.generated.txt");
+    var generatedTestPath = FilePath.CombineDirectoriesAndFile(this.SavePath, "`testName`.`this.Config`.generated.txt");
     return generatedTestPath;
   }
   
   function GetExpectedFileName(testName : String) : String
   {
-    var expectedTestPath = FilePath.CombineDirectoriesAndFile(this.SavePath, "`testName`.expected.txt");
+    var expectedTestPath = FilePath.CombineDirectoriesAndFile(this.SavePath, "`testName`.`this.Config`.expected.txt");
     return expectedTestPath;
   }
   

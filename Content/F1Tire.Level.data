@@ -71,9 +71,9 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-11.4803486, 7.45199633, 3.86360884}
+			var Translation = Real3{3.77953649, 2.45066881, 13.5365953}
 			var Scale = Real3{1, 1, 1}
-			var Rotation = Quaternion{-0.221114606, -0.561492562, -0.158886388, 0.781402349}
+			var Rotation = Quaternion{-0.0760092065, 0.135317296, 0.0104120988, 0.987827599}
 		}
 		CameraViewport 
 		{
@@ -131,9 +131,9 @@ Level
 			var ControlMode = ControlMode.Orbit
 			var Previous3DMode = ControlMode.Orbit
 			var LookDistance = 14.2217474
-			var VerticalAngle = 0.551524103
-			var HorizontalAngle = 1.24616158
-			var LookTarget = Real3{0, 0, 0}
+			var VerticalAngle = 0.15358901
+			var HorizontalAngle = -0.272274852
+			var LookTarget = Real3{0, 0.274942279, 0}
 			var MoveSensitivity = 1
 		}
 	}
@@ -201,46 +201,45 @@ Level
 		{
 			var Active = true
 		}
+		QuaternionCamera 
+		{
+			var Speed = 8
+			var LookSpeed = 0.00499999989
+			var RunWhilePaused = true
+			var AllowRotation = true
+			var AllowTranslation = true
+			var MouseTrapped = false
+		}
 	}
-	Cog [ContextId:5]
+	Cog [InheritId:"5980be95ab6b20fb:F1TireHull"][ChildOrderOverride][ContextId:5]
 	{
-		var Name = "Mesh0"
 		Transform 
 		{
 			var Translation = Real3{0, 0, 0}
-			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		Model 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "583afb5e7bf75e18:ZeroMaterial"
-			var Mesh = "4de0354322b345ae:Cube"
+			var Scale = Real3{1, 1, 1}
 		}
 		BaseCogResultRecorder 
 		{
 		}
-		VertexTextBlockLoader 
+		HierarchyMeshToTextBlock 
 		{
-			var Active = true
-			var TextBlock = "59823a8019e4cdf4:McCarty_Vehicle_Export_pCylinder10.vertices"
 		}
 		QuickHullTest 
 		{
-			var Active = true
-			var DebugDrawMode = QuickHullDebugDrawMode.Final
+			var Active = false
+		}
+		QuickHullRenderSettings 
+		{
 		}
 		QuickHullMeshSaver 
 		{
 			var Active = false
 		}
-		QuickHullUnitTest 
+		QuickHullUnitTest [LocallyAdded]
+		{
+		}
+		Hierarchy 
 		{
 		}
 	}
