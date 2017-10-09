@@ -39,6 +39,18 @@ class SetupQuickhullTest : ZilchComponent
     {
       cog.AddComponentByType(typeid(QuickHullRenderSettings));
     }
+    if(cog.BaseCogResultRecorder == null)
+    {
+      cog.AddComponentByType(typeid(BaseCogResultRecorder));
+    }
+    if(cog.QuickHullMeshSaver == null)
+    {
+      cog.AddComponentByType(typeid(QuickHullMeshSaver));
+    }
+    if(cog.QuickHullUnitTest == null)
+    {
+      cog.AddComponentByType(typeid(QuickHullUnitTest));
+    }
     
     var hullFilledCog = space.CreateAtPosition(Archetype.ConvexHullFilled, Real3.Zero);
     hullFilledCog.AttachToPreserveLocal(cog);
