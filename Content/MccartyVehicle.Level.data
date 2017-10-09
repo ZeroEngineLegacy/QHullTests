@@ -242,7 +242,7 @@ Level
 		}
 		QuickHullTest 
 		{
-			var Active = true
+			var Active = false
 			var DebugDrawMode = QuickHullDebugDrawMode.Final
 		}
 		QuickHullMeshSaver 

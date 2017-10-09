@@ -1,0 +1,213 @@
+----FlagTest----
+Vertices:
+   0: (0.0266398, -0.0323028, -0.0275845)
+   1: (0.0380657, -0.0323028, -5.66552e-10)
+   2: (0.0266398, -0.0323028, 0.0275845)
+   3: (-0.000944629, -0.0323028, 0.0390103)
+   4: (-0.0285291, -0.0323028, 0.0275845)
+   5: (-0.0399549, -0.0323028, -5.66552e-10)
+   6: (-0.0285291, -0.0323028, -0.0275845)
+   7: (-0.000944629, -0.0323028, -0.0390103)
+   8: (-0.000944629, 1.9677, 0.02)
+   9: (0.0131975, 1.9677, 0.0141421)
+  10: (0.0190554, 1.9677, 0)
+  11: (0.0131975, 1.9677, -0.0141421)
+  12: (-0.000944629, 1.9677, -0.02)
+  13: (-0.0150868, 1.9677, -0.0141421)
+  14: (-0.0209446, 1.9677, 0)
+  15: (-0.0150868, 1.9677, 0.0141421)
+  16: (1.52663, 1.91792, 0)
+  17: (1.52663, 0.917923, 0)
+  18: (1.51617, 1.94569, -0.02)
+  19: (1.51617, 1.94569, 0.02)
+  20: (-0.000944629, 0.311482, 0.0390103)
+  21: (-0.0285291, 0.311482, 0.0275845)
+  22: (-0.0399549, 0.311482, -5.66552e-10)
+  23: (1.51617, 1.96569, 0)
+  24: (-0.0285291, 0.311482, -0.0275845)
+  25: (-0.000944629, 0.311482, -0.0390103)
+  26: (1.51617, 1.95983, 0.0141421)
+  27: (1.51617, 1.95983, -0.0141421)
+  28: (-0.00409824, 1.94569, -0.02)
+  29: (-0.00409824, 1.94569, 0.02)
+Edges:
+    0: Vertex( 0) Twin( 27) Face( 0)
+    1: Vertex( 1) Twin( 47) Face( 0)
+    2: Vertex( 2) Twin( 43) Face( 0)
+    3: Vertex( 3) Twin( 31) Face( 0)
+    4: Vertex( 4) Twin( 34) Face( 0)
+    5: Vertex( 5) Twin( 65) Face( 0)
+    6: Vertex( 6) Twin( 75) Face( 0)
+    7: Vertex( 7) Twin( 37) Face( 0)
+    8: Vertex( 8) Twin(129) Face( 1)
+    9: Vertex( 9) Twin(135) Face( 1)
+   10: Vertex(10) Twin(131) Face( 1)
+   11: Vertex(11) Twin( 54) Face( 1)
+   12: Vertex(12) Twin(103) Face( 1)
+   13: Vertex(13) Twin( 61) Face( 1)
+   14: Vertex(14) Twin( 51) Face( 1)
+   15: Vertex(15) Twin(121) Face( 1)
+   16: Vertex(16) Twin( 22) Face( 2)
+   17: Vertex(17) Twin( 39) Face( 2)
+   18: Vertex(18) Twin( 91) Face( 2)
+   19: Vertex( 3) Twin( 42) Face( 3)
+   20: Vertex(17) Twin( 24) Face( 3)
+   21: Vertex(19) Twin( 55) Face( 3)
+   22: Vertex(17) Twin( 16) Face( 4)
+   23: Vertex(16) Twin( 79) Face( 4)
+   24: Vertex(19) Twin( 20) Face( 4)
+   25: Vertex( 0) Twin( 36) Face( 5)
+   26: Vertex(17) Twin( 45) Face( 5)
+   27: Vertex( 1) Twin(  0) Face( 5)
+   28: Vertex( 3) Twin( 57) Face( 6)
+   29: Vertex(20) Twin(115) Face( 6)
+   30: Vertex(21) Twin( 35) Face( 6)
+   31: Vertex( 4) Twin(  3) Face( 6)
+   32: Vertex(21) Twin( 49) Face( 7)
+   33: Vertex(22) Twin( 66) Face( 7)
+   34: Vertex( 5) Twin(  4) Face( 7)
+   35: Vertex( 4) Twin( 30) Face( 7)
+   36: Vertex(17) Twin( 25) Face( 8)
+   37: Vertex( 0) Twin(  7) Face( 8)
+   38: Vertex( 7) Twin( 40) Face( 8)
+   39: Vertex(18) Twin( 17) Face( 9)
+   40: Vertex(17) Twin( 38) Face( 9)
+   41: Vertex( 7) Twin( 72) Face( 9)
+   42: Vertex(17) Twin( 19) Face(10)
+   43: Vertex( 3) Twin(  2) Face(10)
+   44: Vertex( 2) Twin( 46) Face(10)
+   45: Vertex( 1) Twin( 26) Face(11)
+   46: Vertex(17) Twin( 44) Face(11)
+   47: Vertex( 2) Twin(  1) Face(11)
+   48: Vertex(14) Twin( 64) Face(12)
+   49: Vertex(22) Twin( 32) Face(12)
+   50: Vertex(21) Twin(124) Face(12)
+   51: Vertex(15) Twin( 14) Face(12)
+   52: Vertex(11) Twin(130) Face(13)
+   53: Vertex(23) Twin( 97) Face(13)
+   54: Vertex(12) Twin( 11) Face(13)
+   55: Vertex( 3) Twin( 21) Face(14)
+   56: Vertex(19) Twin( 60) Face(14)
+   57: Vertex(20) Twin( 28) Face(14)
+   58: Vertex(19) Twin( 88) Face(15)
+   59: Vertex( 8) Twin(118) Face(15)
+   60: Vertex(20) Twin( 56) Face(15)
+   61: Vertex(14) Twin( 13) Face(16)
+   62: Vertex(13) Twin(112) Face(16)
+   63: Vertex(24) Twin( 67) Face(16)
+   64: Vertex(22) Twin( 48) Face(16)
+   65: Vertex( 6) Twin(  5) Face(17)
+   66: Vertex( 5) Twin( 33) Face(17)
+   67: Vertex(22) Twin( 63) Face(17)
+   68: Vertex(24) Twin( 76) Face(17)
+   69: Vertex(12) Twin( 94) Face(18)
+   70: Vertex(18) Twin( 74) Face(18)
+   71: Vertex(25) Twin(106) Face(18)
+   72: Vertex(18) Twin( 41) Face(19)
+   73: Vertex( 7) Twin( 78) Face(19)
+   74: Vertex(25) Twin( 70) Face(19)
+   75: Vertex( 7) Twin(  6) Face(20)
+   76: Vertex( 6) Twin( 68) Face(20)
+   77: Vertex(24) Twin(109) Face(20)
+   78: Vertex(25) Twin( 73) Face(20)
+   79: Vertex(19) Twin( 23) Face(21)
+   80: Vertex(16) Twin( 84) Face(21)
+   81: Vertex(26) Twin( 89) Face(21)
+   82: Vertex(16) Twin(100) Face(22)
+   83: Vertex(23) Twin( 87) Face(22)
+   84: Vertex(26) Twin( 80) Face(22)
+   85: Vertex(23) Twin(127) Face(23)
+   86: Vertex( 8) Twin( 90) Face(23)
+   87: Vertex(26) Twin( 83) Face(23)
+   88: Vertex( 8) Twin( 58) Face(24)
+   89: Vertex(19) Twin( 81) Face(24)
+   90: Vertex(26) Twin( 86) Face(24)
+   91: Vertex(16) Twin( 18) Face(25)
+   92: Vertex(18) Twin( 96) Face(25)
+   93: Vertex(27) Twin(101) Face(25)
+   94: Vertex(18) Twin( 69) Face(26)
+   95: Vertex(12) Twin( 99) Face(26)
+   96: Vertex(27) Twin( 92) Face(26)
+   97: Vertex(12) Twin( 53) Face(27)
+   98: Vertex(23) Twin(102) Face(27)
+   99: Vertex(27) Twin( 95) Face(27)
+  100: Vertex(23) Twin( 82) Face(28)
+  101: Vertex(16) Twin( 93) Face(28)
+  102: Vertex(27) Twin( 98) Face(28)
+  103: Vertex(13) Twin( 12) Face(29)
+  104: Vertex(12) Twin(108) Face(29)
+  105: Vertex(28) Twin(113) Face(29)
+  106: Vertex(12) Twin( 71) Face(30)
+  107: Vertex(25) Twin(111) Face(30)
+  108: Vertex(28) Twin(104) Face(30)
+  109: Vertex(25) Twin( 77) Face(31)
+  110: Vertex(24) Twin(114) Face(31)
+  111: Vertex(28) Twin(107) Face(31)
+  112: Vertex(24) Twin( 62) Face(32)
+  113: Vertex(13) Twin(105) Face(32)
+  114: Vertex(28) Twin(110) Face(32)
+  115: Vertex(21) Twin( 29) Face(33)
+  116: Vertex(20) Twin(120) Face(33)
+  117: Vertex(29) Twin(125) Face(33)
+  118: Vertex(20) Twin( 59) Face(34)
+  119: Vertex( 8) Twin(123) Face(34)
+  120: Vertex(29) Twin(116) Face(34)
+  121: Vertex( 8) Twin( 15) Face(35)
+  122: Vertex(15) Twin(126) Face(35)
+  123: Vertex(29) Twin(119) Face(35)
+  124: Vertex(15) Twin( 50) Face(36)
+  125: Vertex(21) Twin(117) Face(36)
+  126: Vertex(29) Twin(122) Face(36)
+  127: Vertex( 8) Twin( 85) Face(37)
+  128: Vertex(23) Twin(133) Face(37)
+  129: Vertex( 9) Twin(  8) Face(37)
+  130: Vertex(23) Twin( 52) Face(38)
+  131: Vertex(11) Twin( 10) Face(38)
+  132: Vertex(10) Twin(134) Face(38)
+  133: Vertex( 9) Twin(128) Face(39)
+  134: Vertex(23) Twin(132) Face(39)
+  135: Vertex(10) Twin(  9) Face(39)
+
+Faces:
+   0:   0,   1,   2,   3,   4,   5,   6,   7, 
+   1:   8,   9,  10,  11,  12,  13,  14,  15, 
+   2:  16,  17,  18, 
+   3:  19,  20,  21, 
+   4:  22,  23,  24, 
+   5:  25,  26,  27, 
+   6:  28,  29,  30,  31, 
+   7:  32,  33,  34,  35, 
+   8:  36,  37,  38, 
+   9:  39,  40,  41, 
+  10:  42,  43,  44, 
+  11:  45,  46,  47, 
+  12:  48,  49,  50,  51, 
+  13:  52,  53,  54, 
+  14:  55,  56,  57, 
+  15:  58,  59,  60, 
+  16:  61,  62,  63,  64, 
+  17:  65,  66,  67,  68, 
+  18:  69,  70,  71, 
+  19:  72,  73,  74, 
+  20:  75,  76,  77,  78, 
+  21:  79,  80,  81, 
+  22:  82,  83,  84, 
+  23:  85,  86,  87, 
+  24:  88,  89,  90, 
+  25:  91,  92,  93, 
+  26:  94,  95,  96, 
+  27:  97,  98,  99, 
+  28: 100, 101, 102, 
+  29: 103, 104, 105, 
+  30: 106, 107, 108, 
+  31: 109, 110, 111, 
+  32: 112, 113, 114, 
+  33: 115, 116, 117, 
+  34: 118, 119, 120, 
+  35: 121, 122, 123, 
+  36: 124, 125, 126, 
+  37: 127, 128, 129, 
+  38: 130, 131, 132, 
+  39: 133, 134, 135, 
+
+
