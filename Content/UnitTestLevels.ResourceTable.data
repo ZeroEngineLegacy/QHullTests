@@ -100,6 +100,18 @@ ResourceTable
 			var Value = "598220b28232b3a1:MccartyVehicle"
 			var Weight = 1
 		}
+		Object
+		{
+			var Name = "Name17"
+			var Value = "598916a403dd240c:armadillo"
+			var Weight = 1
+		}
+		Object
+		{
+			var Name = "Name18"
+			var Value = "598917670c406827:standfordBunny"
+			var Weight = 1
+		}
 	}
 	var MaxWeight = 1
 }
