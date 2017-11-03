@@ -13,7 +13,7 @@ class QuickHullTest : ZilchComponent
   [Property] var Active : Boolean = true;
   [Property] var DebugDrawMode : QuickHullDebugDrawMode = QuickHullDebugDrawMode.None;
   
-  var QuickHullInterface : QuickHull3DInterface = QuickHull3DInterface();
+  var QuickHull : QuickHull3D = QuickHull3D();
   var Index : Integer = 0;
   var TestName : String = "";
   
@@ -52,11 +52,11 @@ class QuickHullTest : ZilchComponent
     this.TestName = queryEvent.TestName;
     var points = queryEvent.Vertices;
     
-    this.QuickHullInterface.ShowDebugDraw = (this.DebugDrawMode == QuickHullDebugDrawMode.Debug);
-    this.QuickHullInterface.Clear();
+    this.QuickHull.ShowDebugDraw = (this.DebugDrawMode == QuickHullDebugDrawMode.Debug);
+    this.QuickHull.Clear();
     foreach(var point in points)
-      this.QuickHullInterface.Add(point);
-    this.QuickHullInterface.Build();
+      this.QuickHull.Add(point);
+    this.QuickHull.Build();
     this.CacheMesh();
     
     var toSend = QuickHullEvent() {Owner = this.Owner};
@@ -68,8 +68,8 @@ class QuickHullTest : ZilchComponent
   {
     if(this.DebugDrawMode == QuickHullDebugDrawMode.Debug)
     {
-      this.QuickHullInterface.Index = this.Index;
-      this.QuickHullInterface.Draw();
+      this.QuickHull.Index = this.Index;
+      this.QuickHull.Draw();
     }
     else if(this.DebugDrawMode == QuickHullDebugDrawMode.Final)
     {
@@ -95,7 +95,7 @@ class QuickHullTest : ZilchComponent
     this.Edges.Clear();
     this.Faces.Clear();
     
-    var mesh = this.QuickHullInterface.Mesh;
+    var mesh = this.QuickHull.Mesh;
     
     var vertices = mesh.Vertices;
     var edges = mesh.Edges;
